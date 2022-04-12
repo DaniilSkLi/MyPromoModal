@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
+
+.is-page
+  filter blur(0px)
+  transition filter 0.5s
+
+  &.is-blur
+    filter blur(5px)
+
+.my-promo-modal
+  position fixed
+  top 0
+  left 0
+  width 100vw
+  height 100vh
+  background-color rgba(#555555, 0.5)
+  display none
+  font-family "Rubik", Aria;
+  font-weight 400
+
+  justify-content center
+  align-items: center
+
+  &.my-promo-modal_visible
+    animation fade_in 0.5s linear
+    display flex
+
+  .my-promo-modal__content
+    width 50%
+    background-color #fff
+    border-radius 20px
+    padding 20px
+    box-shadow 0px 0px 20px 0px #888888
+
+    max-height 80vh
+    overflow auto
+
+    .is-loading
+      position relative
+      &::before
+        content ''
+        display block
+        position absolute
+        width 100%
+        height 100%
+        background linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%)
+        background-size 200% 100%
+        border-radius 10px
+        animation 1.5s shine linear infinite
+        transition all 0.5s
+        opacity 1
+
+      &.is-load::before
+        opacity 0
+
+    .scroll-content
+      display flex
+      gap 10px
+
+      .konqi
+        width 30%
+
+        img
+          width 100% 
+
+      .text
+        width 70%
+        font-size 1.2vw
+
+        h1
+          margin-top 0
+          font-size 2.5vw
+
+        .btns
+          display flex
+          flex-wrap wrap
+          gap 10px
+
+          button
+            font-weight: 600
+
+            padding 10px 20px
+            border 1px solid #e8e8e8
+            border-radius: 20px
+            cursor pointer
+            background none
+            transition background-color 0.2s
+
+            &:hover
+              background-color #efefef
+
+@keyframes shine
+  to
+    background-position-x: -200%;
+
+@keyframes fade_in
+  from
+    opacity 0
